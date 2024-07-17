@@ -206,6 +206,7 @@ const useFilters = () => {
   };
 
   const handleMenuClick = async (itemKey) => {
+    console.log(itemKey);
     try {
       const response = await axios.get(
         "https://controldecuotas.onrender.com/adm_clubes/clientes/categoria/" +
