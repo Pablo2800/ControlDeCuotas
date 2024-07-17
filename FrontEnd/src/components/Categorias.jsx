@@ -15,11 +15,11 @@ export default function Categorias() {
     { label: "9na", key: "9na" },
     { label: "10ma", key: "10ma" },
     { label: "Infantiles", key: "Infantiles" },
-    { label: "1raFemenino", value: "1raFem" },
-    { label: "Sub 11", value: "Sub 11" },
-    { label: "Sub 13", value: "Sub 13" },
-    { label: "Sub 15", value: "Sub 15" },
-    { label: "Sub 17", value: "Sub 17" },
+    { label: "1raFemenino", key: "1raFem" },
+    { label: "Sub 11", key: "Sub 11" },
+    { label: "Sub 13", key: "Sub 13" },
+    { label: "Sub 15", key: "Sub 15" },
+    { label: "Sub 17", key: "Sub 17" },
   ];
 
   const menu = (
