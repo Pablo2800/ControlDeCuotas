@@ -130,7 +130,27 @@ const useFilters = () => {
     const nuevaFecha = partes[2] + "-" + partes[1] + "-" + partes[0];
     try {
       const response = await axios.post(
-        `https://controldecuotas.onrender.com/adm_clubes/pago_mensuales/${cliente_id}/pagos`,
+        `https://controldecuotas.onrender.com/adm_clubes/pago_mensuales/${cliente_id}/pagos?opcionPago=2`,
+        { fecha: nuevaFecha, monto }
+      );
+      if (response.data) {
+        notificarExito("Pago realizado con exito");
+        setTimeout(() => {
+          navigate("/inicio");
+        }, 2000);
+      }
+    } catch (error) {
+      notificarError(error);
+    }
+  };
+
+  const pagoAtrasado = async (values) => {
+    const { cliente_id, fecha, monto } = values;
+    const partes = fecha.split("-");
+    const nuevaFecha = partes[2] + "-" + partes[1] + "-" + partes[0];
+    try {
+      const response = await axios.post(
+        `https://controldecuotas.onrender.com/adm_clubes/pago_mensuales/${cliente_id}/pagos?opcionPago=1`,
         { fecha: nuevaFecha, monto }
       );
       if (response.data) {
@@ -322,6 +342,7 @@ const useFilters = () => {
     handlePagos,
     downloadDataPDF,
     downloadDataExcel,
+    pagoAtrasado,
   };
 };
 
